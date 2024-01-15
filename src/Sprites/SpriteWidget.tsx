@@ -24,24 +24,31 @@ export const AnimatedSpriteExample: React.FC<Props> = (props) => {
 
   return (
     <View style={styles.container}>
-      <AnimatedSprite
-        ref={ref}
-        sprite={catSprite}
-        animationFrameIndex={[0, 1, 2, 3, 4, 5, 6, 7]}
-        loopAnimation={true}
-        coordinates={{
-          top: 0,
-          left: 0,
-        }}
-        size={{
-          width: catSprite.size.width,
-          height: catSprite.size.height,
-        }}
-        draggable={false}
-        // tweenOptions = {this.state.tweenOptions}
-        tweenStart={'fromMethod'}
-        onPress={props.onPress}
-      />
+      <View style={styles.placeholder} />
+      <View style={styles.sprite}>
+        <AnimatedSprite
+          ref={ref}
+          sprite={catSprite}
+          animationFrameIndex={[0, 1, 2, 3, 4, 5, 6, 7]}
+          loopAnimation={true}
+          coordinates={{
+            top: 0,
+            left: 0,
+          }}
+          size={{
+            width: catSprite.size.width,
+            height: catSprite.size.height,
+          }}
+          draggable={false}
+          // tweenOptions = {this.state.tweenOptions}
+          tweenStart={'fromMethod'}
+          onPress={props.onPress}
+        />
+
+
+      </View>
+
+
     </View>
   )
 }
@@ -49,8 +56,15 @@ export const AnimatedSpriteExample: React.FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    flexDirection: "row",
 
-    justifyContent: "center"
-  }
+  },
+  placeholder: {
+    flex: 1,
+  },
+  sprite: {
+    flex: 0.5,
+  },
 });
 

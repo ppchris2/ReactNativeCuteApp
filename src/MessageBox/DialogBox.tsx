@@ -23,7 +23,7 @@ const DialogBox: React.FC<Props> = (props) => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{
-        backgroundColor: 'grey',
+        backgroundColor: 'skyblue',
         borderWidth: 5,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
