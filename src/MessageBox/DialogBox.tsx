@@ -1,8 +1,8 @@
 // DialogBox.js
-import React, { useState } from "react"; //highlight-line
+import React, { useState, useEffect } from "react"; //highlight-line
 
-import { Pressable, View, Text, ViewStyle } from "react-native";
-import Message from "./MessageBox";
+import { Pressable, View, Text, Animated } from "react-native";
+import { Message } from "./MessageBox";
 import { AnimatedSpriteExample } from "../Sprites/SpriteWidget";
 
 interface Props {
@@ -34,6 +34,8 @@ const DialogBox: React.FC<Props> = (props) => {
       }}>
         <Message message={props.messages[currentMessage]} />
       </View>
+
+
       <AnimatedSpriteExample onPress={handleClick} />
 
     </View>

@@ -4,13 +4,13 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
+  Animated,
 
 } from 'react-native';
 // import sample from 'lodash.sample';
 
 import AnimatedSprite from 'react-native-animated-sprite';
-import catSprite from './AnimationSprite';
+import { catSprite } from '../../assets/Images';
 
 interface Props {
   onPress: () => void
@@ -19,12 +19,21 @@ interface Props {
 export const AnimatedSpriteExample: React.FC<Props> = (props) => {
 
 
+  const [hasBeenClicked, useHasBeenClicked] = React.useState(false);
   const ref = React.useRef();
+
+  const onPress = () => {
+    useHasBeenClicked(true)
+    props.onPress()
+  }
+
 
 
   return (
     <View style={styles.container}>
-      <View style={styles.placeholder} />
+      <View style={{ width: 10, flex: 1 }}>
+        <Text style={{ display: hasBeenClicked ? "none" : "flex", fontWeight: "bold", fontSize: 30 }}>Click Me 😘 -></Text>
+      </View>
       <View style={styles.sprite}>
         <AnimatedSprite
           ref={ref}
@@ -42,7 +51,7 @@ export const AnimatedSpriteExample: React.FC<Props> = (props) => {
           draggable={false}
           // tweenOptions = {this.state.tweenOptions}
           tweenStart={'fromMethod'}
-          onPress={props.onPress}
+          onPress={onPress}
         />
 
 
